@@ -19,13 +19,14 @@ class DogList<T> : AppCompatActivity() {
 
         val api = Connection.create()
         val layoutLista: LinearLayout = findViewById(R.id.layout_lista)
+
         api.listDogs().enqueue(object : Callback<List<Dog>> {
 
             override fun onResponse(call: Call<List<Dog>>, response: Response<List<Dog>>) {
 
                 response.body()?.forEach {
                     val tvDog = TextView(baseContext)
-                    tvDog.text = "Breed: ${it.breed} - price: ${it.price} - for kids ${it.forKids}"
+                    tvDog.text = "Breed: ${it.raca} - price: ${it.precoMedio} - for kids ${it.indicadoCriancas}"
                     layoutLista.addView(tvDog)
                 }
             }

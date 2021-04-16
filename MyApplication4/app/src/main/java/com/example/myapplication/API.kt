@@ -11,5 +11,5 @@ interface API {
     @DELETE("cachorros/{id}")
     fun remove(@Path("id") id: Int): Call<Void>
     @GET("cachorros/")
-    fun list(): Call<List<Dog>>
+    fun listDogs(): Call<List<Dog>>
 }

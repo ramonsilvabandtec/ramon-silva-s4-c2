@@ -26,47 +26,10 @@ class Home : AppCompatActivity() {
 
     fun List(view: View) {
 
-        val api = Connection.create()
-
-        val layoutLista: LinearLayout = findViewById(R.id.layout_lista)
-
-        api.list().enqueue(object : Callback<List<Dog>> {
-
-            override fun onResponse(call: Call<List<Dog>>, response: Response<List<Dog>>) {
-
-                response.body()?.forEach {
-                    val tvDog = TextView(baseContext)
-                    tvDog.text = "Breed: ${it.breed} - price: ${it.price} - for kids ${it.forKids}"
-
-                    layoutLista.addView(tvDog)
-                }
-
-            }
-
-            override fun onFailure(call: Call<List<Dog>>, t: Throwable) {
-                Toast.makeText(baseContext, "Call error: ${t.message!!}", Toast.LENGTH_SHORT).show()
-            }
-
-        })
+        val intent = Intent(this, DogList::class.java).apply {
+        }
+        startActivity(intent)
 
     }
 
-    fun remover(view: View) {
-        val API = Connection.create()
-        val aqueleId: EditText = findViewById(R.id.id_remover)
-        val idString: String = aqueleId.text.toString()
-        val idInt: Int = idString.toInt()
-        API.remove(idInt).enqueue(object : Callback<Void> {
-
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                Toast.makeText(baseContext,"REMOVEU",Toast.LENGTH_SHORT).show()
-                }
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(baseContext, "Call error: ${t.message!!}", Toast.LENGTH_SHORT).show()
-            }
-            })
-
-
-
-        }
     }

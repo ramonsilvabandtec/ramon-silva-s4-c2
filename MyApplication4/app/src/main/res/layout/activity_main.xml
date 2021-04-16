@@ -27,24 +27,4 @@
         android:layout_centerHorizontal="true"
         ></Button>
 
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/id_remover"
-        android:hint="int remover"
-        android:layout_below="@id/bt_list"
-        android:layout_centerHorizontal="true"
-        ></EditText>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REMOVER"
-        android:id="@+id/bt_remover"
-        android:layout_below="@id/id_remover"
-        android:onClick="remover"
-        android:layout_centerHorizontal="true"
-        ></Button>
-
 </RelativeLayout>

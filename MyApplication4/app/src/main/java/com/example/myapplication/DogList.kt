@@ -10,7 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import kotlin.collections.List
 
-class List<T> : AppCompatActivity() {
+class DogList<T> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
@@ -19,7 +19,7 @@ class List<T> : AppCompatActivity() {
 
         val api = Connection.create()
         val layoutLista: LinearLayout = findViewById(R.id.layout_lista)
-        api.list().enqueue(object : Callback<List<Dog>> {
+        api.listDogs().enqueue(object : Callback<List<Dog>> {
 
             override fun onResponse(call: Call<List<Dog>>, response: Response<List<Dog>>) {
 
